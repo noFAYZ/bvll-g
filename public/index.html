@@ -26,9 +26,134 @@
     -->
     <title>BVLL-G Minting Dapp</title>
   </head>
-  <body style="background-image: url(./BVLLG.png); background-size: contain; background-position: center; background-repeat: no-repeat;">
+  <body class="bstyle" style="background-image: url(./BVLLG.png); background-size: contain; background-position: center; background-repeat: no-repeat;">
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root" style="margin-top:40% ;"></div>
+    <style>
+
+    @media only screen and (max-width: 600px) {
+          .bstyle{
+            margin-top: 100%;
+        }
+        .tstyle{
+          text-align: center;
+          padding: 100px 60px;
+          background: #90cbf3;
+          font-family: sans-serif;
+          font-weight: lighter;
+          margin-top: 100%;
+     
+        }
+
+        #timer {
+            font-size: 2em;
+            font-weight: 700;
+            color: white;
+            padding: 20px;
+            color: white;
+            
+        }
+
+        #timer div {
+            display: inline-block;
+            min-width: 30px;
+            padding: 15px;
+            background: #384457;
+            border-radius: 10px;
+            border: 2px solid #384457;
+            margin: 5px;
+        }
+
+        #timer div span {
+            color: #ffffff;
+            display: block;
+            margin-top: 15px;
+            font-size: .35em;
+            font-weight: 400;
+        }
+    }
+    @media only screen and (min-width: 600px) {
+          .bstyle{
+            margin-top: 45%;
+        }
+        .tstyle{
+          text-align: center;
+          margin-top: 45%;
+      
+        }
+
+        #timer {
+            font-size: 3em;
+            font-weight: 700;
+            color: white;
+            padding: 20px;
+            color: white;
+            
+        }
+
+        #timer div {
+            display: inline-block;
+            min-width: 90px;
+            padding: 15px;
+            background: #384457;
+            border-radius: 10px;
+            border: 2px solid #384457;
+            margin: 15px;
+        }
+
+        #timer div span {
+            color: #ffffff;
+            display: block;
+            margin-top: 15px;
+            font-size: .35em;
+            font-weight: 400;
+        }
+
+       
+    }
+
+    
+   
+     
+    </style>
+
+    <div class="tstyle">
+      <h1 style="text-align: center; margin-top: 15%; font-size: 3rem; color: #384457;">OG SALE!</h1>
+      <div id="timer" class="" style=" display: flex;
+      justify-content: center;"></div>
+    </div>
+  
+    <div id="root" class="bstyle" hidden></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.1.0/jquery.countdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment-with-locales.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.4.0/moment-timezone-with-data-2010-2020.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        
+        var nextYear = moment.tz("2022-04-23 13:00", "America/Toronto");
+    
+         $('#timer').countdown(nextYear.toDate(), function(event) {
+             var $this = $(this).html(event.strftime(''
+          
+             + '<div>%d <span>days</span>  </div>'
+             + '<div>%H <span>Hours</span>  </div> '
+             + '<div>%M <span>Minutes</span>  </div>'
+             + '<div>%S <span>Seconds</span>  </div>'
+             
+             ));
+          console.log(event.type);
+             
+             if(event.type=="finish"){
+               console.log("Updated")
+             
+              $('#root').attr("hidden",false);
+              $('.tstyle').attr("hidden",true);
+             }
+         });
+      });
+    </script>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
