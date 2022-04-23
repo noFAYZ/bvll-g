@@ -178,12 +178,12 @@ const Home = (props: HomeProps) => {
         const collectionPDAAccount =
           await cndy.program.provider.connection.getAccountInfo(collectionPDA);
 
-          //Faizan Asad Mint Limit Reached 
-          var tminted = 3333 - cndy!.state.itemsRemaining;
-          console.log("TOTAL MINTED TOKENS",tminted);
-          if (tminted==433) {
-            active = false;
-          }
+          // //Faizan Asad Mint Limit Reached 
+          // var tminted = 3333 - cndy!.state.itemsRemaining;
+          // console.log("TOTAL MINTED TOKENS",tminted);
+          // if (tminted==433) {
+          //   active = false;
+          // }
         setIsActive((cndy.state.isActive = active));
         setIsPresale((cndy.state.isPresale = presale));
         setCandyMachine(cndy);
