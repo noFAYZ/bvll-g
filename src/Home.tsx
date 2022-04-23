@@ -181,7 +181,7 @@ const Home = (props: HomeProps) => {
           //Faizan Asad Mint Limit Reached 
           var tminted = 3333 - cndy!.state.itemsRemaining;
           console.log("TOTAL MINTED TOKENS",tminted);
-          if (tminted==400) {
+          if (tminted==433) {
             active = false;
           }
         setIsActive((cndy.state.isActive = active));
