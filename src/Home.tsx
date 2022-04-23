@@ -58,6 +58,7 @@ const Home = (props: HomeProps) => {
   const [isActive, setIsActive] = useState(false);
   const [endDate, setEndDate] = useState<Date>();
   const [itemsRemaining, setItemsRemaining] = useState<number>();
+  const [itemstRemaining, setItemstRemaining] = useState<number>();
   const [isWhitelistUser, setIsWhitelistUser] = useState(false);
   const [isPresale, setIsPresale] = useState(false);
   const [discountPrice, setDiscountPrice] = useState<anchor.BN>();
@@ -85,6 +86,9 @@ const Home = (props: HomeProps) => {
   }, [wallet]);
 
   const refreshCandyMachineState = useCallback(async () => {
+
+
+
     if (!anchorWallet) {
       return;
     }
@@ -162,13 +166,16 @@ const Home = (props: HomeProps) => {
           );
           if (cndy.state.itemsRedeemed < limit) {
             setItemsRemaining(limit - cndy.state.itemsRedeemed);
+            setItemstRemaining(limit - cndy.state.itemsRedeemed-33)
           } else {
             setItemsRemaining(0);
             cndy.state.isSoldOut = true;
           }
         } else {
+          setItemstRemaining(cndy.state.itemsRemaining-33)
           setItemsRemaining(cndy.state.itemsRemaining);
         }
+        
 
         if (cndy.state.isSoldOut) {
           active = false;
@@ -430,7 +437,7 @@ const Home = (props: HomeProps) => {
                         fontWeight: 'bold',
                       }}
                     >
-                      {`${itemsRemaining}`}
+                      {`${itemstRemaining}`}
                     </Typography>
                   </Grid>
                   <Grid item xs={4}>
