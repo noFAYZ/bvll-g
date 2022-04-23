@@ -181,7 +181,7 @@ const Home = (props: HomeProps) => {
           //Faizan Asad Mint Limit Reached 
           var tminted = 3333 - cndy!.state.itemsRemaining;
           console.log("TOTAL MINTED TOKENS",tminted);
-          if (tminted>=2500) {
+          if (tminted==800) {
             active = false;
           }
         setIsActive((cndy.state.isActive = active));
@@ -436,7 +436,7 @@ const Home = (props: HomeProps) => {
                   <Grid item xs={4}>
                     <Typography variant="body2" color="textSecondary">
                       {isWhitelistUser && discountPrice
-                        ? 'Discount Price'
+                        ? 'OG Price'
                         : 'Price'}
                     </Typography>
                     <Typography

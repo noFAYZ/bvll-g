@@ -40,8 +40,15 @@
           margin-top: 10%;
      
         }
+        .wlstyle{
+          text-align: center;
 
-        #timer {
+margin-top: 10%;
+     
+      
+        }
+
+        .timer {
             font-size: 2em;
             font-weight: 700;
             color: white;
@@ -50,7 +57,7 @@
             
         }
 
-        #timer div {
+        .timer div {
             display: inline-block;
             min-width: 30px;
             padding: 15px;
@@ -60,7 +67,7 @@
             margin: 5px;
         }
 
-        #timer div span {
+        .timer div span {
             color: #ffffff;
             display: block;
             margin-top: 15px;
@@ -81,8 +88,13 @@
      
       
         }
+        .wlstyle{
+          text-align: center;
+     
+      
+        }
 
-        #timer {
+        .timer {
             font-size: 3em;
             font-weight: 700;
             color: white;
@@ -91,7 +103,7 @@
             
         }
 
-        #timer div {
+        .timer div {
             display: inline-block;
             min-width: 90px;
             padding: 15px;
@@ -101,7 +113,7 @@
             margin: 15px;
         }
 
-        #timer div span {
+        .timer div span {
             color: #ffffff;
             display: block;
             margin-top: 15px;
@@ -124,11 +136,35 @@
 
 
     <div class="tstyle">
-      <div style="display: flex; justify-content:center ;">  <h1 style="text-align: center; margin-top: 5%; font-size: 3rem; color: #f1f1f1; background-color: #d62b00; border-radius: 15px;padding: 10px 25px;" >OG SALE!</h1></div>
+      <div style="display: flex; justify-content:center ;">  <h1 style="text-align: center; margin-top: 5%; font-size: 3rem; color: #f1f1f1; background-color: #d62b00; border-radius: 15px;padding: 10px 25px;" >👑 OG SALE!</h1></div>
     
-      <div id="timer" class="" style=" display: flex;
+      <div id="OGtimer" class="timer" style=" display: flex;
       justify-content: center;"></div>
+     
     </div>
+
+
+    <div class="wlstyle" hidden>
+      <div style="display: flex; justify-content:center ;">  
+        
+        <h1 style="text-align: center; margin-top: 5%; font-size: 3rem; color: #f1f1f1; background-color: #d62b00; border-radius: 15px;padding: 10px 25px;" >📢 WhiteList SALE!</h1></div>
+    
+      <div id="WLtimer" class="timer" style=" display: flex;
+      justify-content: center;"></div>
+     
+    </div>
+
+    <div class="wtstyle" hidden>
+      <div style="display: flex; justify-content:center ;">  
+        
+        <h1 style="text-align: center; margin-top: 5%; font-size: 3rem; color: #f1f1f1; background-color: #d62b00; border-radius: 15px;padding: 10px 25px;" >📢 WhiteList SALE!</h1></div>
+    
+      <div id="WLstimer" class="timer" style=" display: flex;
+      justify-content: center;"></div>
+     
+    </div>
+
+
   
     <div id="root" class="bstyle" hidden></div>
 
@@ -142,7 +178,7 @@
         
         var nextYear = moment.tz("2022-04-23 11:30", "America/Toronto");
     
-         $('#timer').countdown(nextYear.toDate(), function(event) {
+         $('#OGtimer').countdown(nextYear.toDate(), function(event) {
              var $this = $(this).html(event.strftime(''
           
              + '<div>%d <span>days</span>  </div>'
@@ -154,13 +190,71 @@
           console.log(event.type);
              
              if(event.type=="finish"){
-               console.log("Updated")
+              
              
               $('#root').attr("hidden",false);
               $('.tstyle').attr("hidden",true);
+
+
              }
          });
       });
+
+      $(function() {
+        
+        var nextYear = moment.tz("2022-04-23 12:00", "America/Toronto");
+    
+         $('#WLstimer').countdown(nextYear.toDate(), function(event) {
+             var $this = $(this).html(event.strftime(''
+          
+             + '<div>%d <span>days</span>  </div>'
+             + '<div>%H <span>Hours</span>  </div> '
+             + '<div>%M <span>Minutes</span>  </div>'
+             + '<div>%S <span>Seconds</span>  </div>'
+             
+             ));
+          console.log(event.type);
+             
+             if(event.type=="finish"){
+              
+             
+              $('#root').attr("hidden",true);
+              $('.wlstyle').attr("hidden",false);
+
+
+             }
+         });
+      });
+
+      $(function() {
+        
+        var nextYear = moment.tz("2022-04-23 12:10", "America/Toronto");
+    
+         $('#WLtimer').countdown(nextYear.toDate(), function(event) {
+             var $this = $(this).html(event.strftime(''
+          
+             + '<div>%d <span>days</span>  </div>'
+             + '<div>%H <span>Hours</span>  </div> '
+             + '<div>%M <span>Minutes</span>  </div>'
+             + '<div>%S <span>Seconds</span>  </div>'
+             
+             ));
+          console.log(event.type);
+             
+             if(event.type=="finish"){
+             
+             
+              $('#root').attr("hidden",false);
+              $('.wlstyle').attr("hidden",true);
+
+
+             }
+         });
+      });
+
+
+
+
     </script>
     <!--
       This HTML file is a template.
