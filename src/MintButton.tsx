@@ -52,7 +52,7 @@ export const MintButton = ({
       candyMachine?.state.isPresale ||
       candyMachine?.state.isWhitelistOnly
     ) {
-      return 'OG MINT';
+      return 'Whitelist MINT';
     }
 
     return 'MINT';
